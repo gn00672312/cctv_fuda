@@ -1,131 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Train 61 - 德國旅遊車票訂購</title>
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-    <script src="https://kit.fontawesome.com/6d0122ef91.js" crossorigin="anonymous"></script>
-
+  <meta charset="utf-8">
+  <title>輔大 CCTV</title>
+  <script
+    crossorigin="anonymous"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/6d0122ef91.js"></script>
 </head>
 <style>
-    body {
-        background: black;
-        color: #ff9902;
-    }
-    #download_btn {
-        cursor: pointer;
-        margin: 40px 0;
-    }
+  body {
+    background: black;
+    color: #ff9902;
+  }
 
-    #support_info {
-        font-size: 45px;
-        cursor: pointer;
-        margin: 40px 0;
-    }
+  #download_btn {
+    cursor: pointer;
+    margin: 40px 0;
+  }
 
-    #download_table, #support_table {
-        text-align: center;
-        width: 70%;
-        margin: 0 15%;
-    }
-    #download_table td, #support_table td {
-        width: 50%;
-    }
-    img {
-        max-width: 100%;
-        max-height: 100%;
-    }
+  #support_info {
+    font-size: 45px;
+    cursor: pointer;
+    margin: 40px 0;
+  }
 
-    .pornhub_color {
-        color: #ff9902;
-    }
+  #download_table, #support_table {
+    text-align: center;
+    width: 70%;
+    margin: 0 15%;
+  }
 
+  #download_table td, #support_table td {
+    width: 50%;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .pornhub_color {
+    color: #ff9902;
+  }
+
+  .promo_font {
+    font-size: 63px;
+  }
+
+  .journey_list, .station_list {
+    font-size: 36px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width: 600px) {
     .promo_font {
-        font-size: 63px;
+      font-size: 45px;
+    }
+
+    .support_font {
+      font-size: 24px;
     }
 
     .journey_list, .station_list {
-        font-size: 36px;
-        width: 100%;
-        margin-top: 10px;
+      font-size: 18px;
     }
-
-    @media screen and (max-width: 600px) {
-        .promo_font {
-            font-size: 45px;
-        }
-        .support_font {
-            font-size: 24px;
-        }
-        .journey_list, .station_list {
-            font-size: 18px;
-        }
-    }
+  }
 </style>
-<script>
-    function download_apk () {
-      window.location.href = 'http://shorturl.at/ceLR9';
-    }
-</script>
-<body>
-    <div style="text-align: center;">
-        <img src="static/img/logo.png"/>
-        <div class='pornhub_color promo_font'>讓老司機帶您上車德國義大利各大景點</div>
-        <div id="download_btn" onclick="download_apk()">
-            <table id="download_table">
-                <tr>
-                    <td>
-                        <span class='pornhub_color promo_font'>Android 版本</span>
-                    </td>
-                    <td>
-                        <img style='width: 100px;'src="static/img/train61_apk.png"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="station_list">德國義大利最大城市點到點交通！上線了！</div>
-        <table class="station_list">
-            <tr>
-                <td>漢堡 (HAMBURG)</td>
-                <td>柏林 (BERLIN)</td>
-                <td>科隆 (KÖLN)</td>
-                <td>紐倫堡 (NÜRNBERG)</td>
-                <td>法蘭克福 (FRANKFURT)</td>
-                <td>慕尼黑 (München Hbf)</td>
-            </tr>
-        </table>
-        <div class="journey_list"><b>德國</b>激推！半自助遊 火車＋酒店＋城市交通套票</div>
-        <table class="journey_list">
-            <tr>
-                <td>法蘭克福二日遊</td><td>110歐元起</td>
-                <td>柏林三日遊</td><td>165歐元起</td>
-            </tr>
-            <tr>
-                <td>慕尼黑二日遊</td><td>105歐元起</td>
-                <td>海森堡二日遊</td><td>120歐元起</td>
-            </tr>
-            <tr>
-                <td>科隆二日遊</td><td>115歐元起</td>
-                <td>漢堡二日遊</td><td>125歐元起</td>
-            </tr>
-        </table>
-        <div id="support_info">
-            <table id="support_table">
-                <tr>
-                    <td>
-                        <span class='pornhub_color support_font'>如有問題，請聯絡我們</span>
-                    </td>
-                    <td>
-                        <img src="static/img/Train61_support.png"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
+<body oncontextmenu="return false">
+<div style="text-align: center;">
+  <img src="http://viewer:viewer@117.56.58.1/Media/Streaming?type=jpeg&amp;resolution=1920x1080&amp;fps=30&amp;b2=false&amp;width=1920&amp;height=1080&amp;deviceid=2&amp;1609752557588" alt="http://viewer:viewer@117.56.58.1/Media/Streaming?type=jpeg&amp;resolution=1920x1080&amp;fps=30&amp;b2=false&amp;width=1920&amp;height=1080&amp;deviceid=2&amp;1609752557588">
+</div>
 </body>
 </html>
