@@ -71,7 +71,7 @@
         $LAB
             .script('https://atis.ntpc.gov.tw/plugin/flv/flv.min.js')
             .script('https://atis.ntpc.gov.tw/plugin/mobile/mobile-detect.min.js')
-            .script('../scripts/cctvFn.js')
+            .script('/cctv_fuda/scripts/cctvFn.js')
             .wait(function () {
                 $(cctv_div).html("<h4><img src='https://atis.ntpc.gov.tw/images/misc/loading.svg' />讀取中....</h4>");
                 ShowFrame4CCTV.getDeviceUrlMap(cctv_id, cctv_div);
