@@ -1,79 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>輔大 CCTV</title>
-  <script
-    crossorigin="anonymous"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-  <script crossorigin="anonymous" src="https://kit.fontawesome.com/6d0122ef91.js"></script>
+    <meta charset="utf-8">
+    <title>輔大 CCTV</title>
+    <script
+            crossorigin="anonymous"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/6d0122ef91.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/purl/2.3.1/purl.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/labjs/2.0.3/LAB.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <style>
-  body {
-    background: black;
-    color: #ff9902;
-  }
-
-  #download_btn {
-    cursor: pointer;
-    margin: 40px 0;
-  }
-
-  #support_info {
-    font-size: 45px;
-    cursor: pointer;
-    margin: 40px 0;
-  }
-
-  #download_table, #support_table {
-    text-align: center;
-    width: 70%;
-    margin: 0 15%;
-  }
-
-  #download_table td, #support_table td {
-    width: 50%;
-  }
-
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-
-  .pornhub_color {
-    color: #ff9902;
-  }
-
-  .promo_font {
-    font-size: 63px;
-  }
-
-  .journey_list, .station_list {
-    font-size: 36px;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  @media screen and (max-width: 600px) {
-    .promo_font {
-      font-size: 45px;
+    body {
+        background: black;
+        color: #ff9902;
     }
 
-    .support_font {
-      font-size: 24px;
+    img {
+        max-width: 100%;
+        max-height: 100%;
     }
 
-    .journey_list, .station_list {
-      font-size: 18px;
+    .cctv {
+        width: 600px;
     }
-  }
+
+    @media screen and (max-width: 600px) {
+        .cctv {
+            width: 100%;
+        }
+    }
 </style>
 <body oncontextmenu="return false">
-<div style="text-align: center;">
-  <img src="http://viewer:viewer@117.56.58.1/Media/Streaming?type=jpeg&amp;resolution=1920x1080&amp;fps=30&amp;b2=false&amp;width=1920&amp;height=1080&amp;deviceid=2&amp;1609752557588" alt="http://viewer:viewer@117.56.58.1/Media/Streaming?type=jpeg&amp;resolution=1920x1080&amp;fps=30&amp;b2=false&amp;width=1920&amp;height=1080&amp;deviceid=2&amp;1609752557588">
+<div>
+    <h3>
+        週一A - 輔大貴子球場 (貴子路-中山路口)
+    </h3>
+    <div style="text-align: center;">
+        <h1 style="display: none;">CCTV影像顯示元件</h1>
+        <div class="cctv" id="cctvShow_01">
+        </div>
+    </div>
+</div>
+<div>
+    <h3>
+        輔大貴子球場 (中正路-新樹路口)
+    </h3>
+    <div style="text-align: center;">
+        <h1 style="display: none;">CCTV影像顯示元件</h1>
+        <div class="cctv" id="cctvShow_02">
+        </div>
+    </div>
 </div>
 </body>
+<script>
+    let IISI = {};
+    IISI.BASEPATH = 'https://atis.ntpc.gov.tw/';
+    let CCTV_LIST = [
+        ["C000106", '#cctvShow_01'],
+        ["C000303", '#cctvShow_02']
+    ];
+
+    CCTV_LIST.forEach(cctv => {
+        let cctv_id = cctv[0];
+        let cctv_div = cctv[1];
+        $LAB
+            .script('https://atis.ntpc.gov.tw/plugin/flv/flv.min.js')
+            .script('https://atis.ntpc.gov.tw/plugin/mobile/mobile-detect.min.js')
+            .script('../scripts/cctvFn.js')
+            .wait(function () {
+                $(cctv_div).html("<h4><img src='https://atis.ntpc.gov.tw/images/misc/loading.svg' />讀取中....</h4>");
+                ShowFrame4CCTV.getDeviceUrlMap(cctv_id, cctv_div);
+        })
+    });
+</script>
 </html>
