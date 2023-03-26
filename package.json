@@ -1,4 +1,8 @@
 {
   "name": "cctv_fuda",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "webpack-dev-server --mode development"
+  }
 }
