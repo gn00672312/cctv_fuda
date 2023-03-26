@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>輔大 CCTV</title>
+    <script
+            crossorigin="anonymous"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/6d0122ef91.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/purl/2.3.1/purl.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/labjs/2.0.3/LAB.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<style>
+    body {
+        background: black;
+        color: #ff9902;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .cctv {
+        width: 600px;
+    }
+
+    @media screen and (max-width: 600px) {
+        .cctv {
+            width: 100%;
+        }
+    }
+</style>
+<body oncontextmenu="return false">
+<div>
+    <h3>
+        萬華晨光球場 (環快華中橋)
+    </h3>
+    <div style="text-align: center;">
+        <img class="mfp-img" src="https://cctv.bote.gov.taipei:8501/MJPEG/006" style="max-height: 664px;">
+    </div>
+    <h3>
+        萬華晨光球場 (華中橋水門)
+    </h3>
+    <div style="text-align: center;">
+        <img class="mfp-img" src="https://heocctv2.gov.taipei/channel22" style="max-height: 664px;">
+    </div>
+</div>
+<div>
+    <h3>
+        輔大貴子球場 (貴子路-中山路口)
+    </h3>
+    <div style="text-align: center;">
+        <h1 style="display: none;">CCTV影像顯示元件</h1>
+        <div class="cctv" id="cctvShow_01">
+        </div>
+    </div>
+</div>
+<div>
+    <h3>
+        輔大貴子球場 (中正路-新樹路口)
+    </h3>
+    <div style="text-align: center;">
+        <h1 style="display: none;">CCTV影像顯示元件</h1>
+        <div class="cctv" id="cctvShow_02">
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    let IISI = {};
+    IISI.BASEPATH = 'https://atis.ntpc.gov.tw/';
+    let CCTV_LIST = [
+        ["C000106", '#cctvShow_01'],
+        ["C000303", '#cctvShow_02']
+    ];
+
+    CCTV_LIST.forEach(cctv => {
+        let cctv_id = cctv[0];
+        let cctv_div = cctv[1];
+        $LAB
+            .script('https://atis.ntpc.gov.tw/plugin/flv/flv.min.js')
+            .script('https://atis.ntpc.gov.tw/plugin/mobile/mobile-detect.min.js')
+            .script('/cctv_fuda/scripts/cctvFn.js')
+            .wait(function () {
+                $(cctv_div).html("<h4><img src='https://atis.ntpc.gov.tw/images/misc/loading.svg' />讀取中....</h4>");
+                ShowFrame4CCTV.getDeviceUrlMap(cctv_id, cctv_div);
+        })
+    });
+</script>
+</html>
